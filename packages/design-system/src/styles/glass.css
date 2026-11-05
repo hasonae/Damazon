@@ -1,0 +1,335 @@
+/* -------------------------------------------------------------------------
+   Glass surfaces
+
+   The consumer application's visual language: a frosted translucent surface
+   over a water-toned backdrop. Each surface supports blur, transparency,
+   border, shadow, and responsive behaviour.
+   ------------------------------------------------------------------------- */
+
+.dz-glass {
+  position: relative;
+  border-radius: var(--dz-radius, var(--dz-radius-xl));
+  border: var(--dz-border-hairline) solid var(--dz-glass-border);
+  box-shadow: var(--dz-elevation, var(--dz-elevation-medium));
+  background-color: var(--dz-glass-background);
+  backdrop-filter: var(--dz-glass-backdrop, var(--dz-blur-medium));
+  -webkit-backdrop-filter: var(--dz-glass-backdrop, var(--dz-blur-medium));
+}
+
+.dz-glass--radius-none {
+  --dz-radius: 0;
+}
+
+.dz-glass--blur-subtle {
+  --dz-glass-backdrop: var(--dz-blur-subtle);
+}
+
+.dz-glass--blur-medium {
+  --dz-glass-backdrop: var(--dz-blur-medium);
+}
+
+.dz-glass--blur-strong {
+  --dz-glass-backdrop: var(--dz-blur-strong);
+}
+
+/* Alpha rather than a fixed colour, so a surface stays translucent over both
+   a photographic hero and a plain page background. */
+.dz-glass--fill-faint {
+  --dz-glass-alpha: var(--dz-glass-alpha-faint);
+}
+
+.dz-glass--fill-light {
+  --dz-glass-alpha: var(--dz-glass-alpha-light);
+}
+
+.dz-glass--fill-medium {
+  --dz-glass-alpha: var(--dz-glass-alpha-medium);
+}
+
+.dz-glass--fill-heavy {
+  --dz-glass-alpha: var(--dz-glass-alpha-heavy);
+}
+
+.dz-glass {
+  --dz-glass-background: rgb(255 255 255 / var(--dz-glass-alpha, var(--dz-glass-alpha-light)));
+  --dz-glass-border: rgb(255 255 255 / 0.55);
+}
+
+/* Cards */
+.dz-glass-card--pad-none {
+  padding: 0;
+}
+
+.dz-glass-card--pad-sm {
+  padding: var(--dz-space-3);
+}
+
+.dz-glass-card--pad-md {
+  padding: var(--dz-space-4);
+}
+
+.dz-glass-card--pad-lg {
+  padding: var(--dz-space-6);
+}
+
+.dz-glass-card--interactive {
+  cursor: pointer;
+  transition:
+    transform calc(var(--dz-duration-base) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    box-shadow calc(var(--dz-duration-base) * var(--dz-motion-scale)) var(--dz-easing-standard);
+}
+
+.dz-glass-card--interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dz-elevation-high);
+}
+
+.dz-glass-card--interactive:active {
+  transform: translateY(0);
+  box-shadow: var(--dz-elevation-medium);
+}
+
+/* Panel */
+.dz-glass-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dz-glass-panel--padded {
+  padding: var(--dz-space-4);
+}
+
+.dz-glass-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--dz-space-3);
+  margin-block-end: var(--dz-space-3);
+}
+
+.dz-glass-panel__title {
+  font-size: var(--dz-type-heading-sm);
+}
+
+.dz-glass-panel__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-2);
+}
+
+.dz-glass-panel__body {
+  flex: 1 1 auto;
+  min-block-size: 0;
+}
+
+.dz-glass-panel__footer {
+  margin-block-start: var(--dz-space-3);
+  padding-block-start: var(--dz-space-3);
+  border-block-start: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+}
+
+/* Modal */
+.dz-modal-root,
+.dz-sheet-root {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--dz-space-4);
+}
+
+.dz-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  background-color: rgb(44 26 16 / 0.42);
+  cursor: pointer;
+}
+
+.dz-modal {
+  position: relative;
+  inline-size: 100%;
+  max-block-size: calc(100dvh - var(--dz-space-8));
+  overflow: auto;
+}
+
+.dz-modal--sm {
+  max-inline-size: 24rem;
+}
+
+.dz-modal--md {
+  max-inline-size: 34rem;
+}
+
+.dz-modal--lg {
+  max-inline-size: 52rem;
+}
+
+.dz-modal__surface {
+  display: flex;
+  flex-direction: column;
+  padding: var(--dz-space-5);
+}
+
+.dz-modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--dz-space-3);
+  margin-block-end: var(--dz-space-4);
+}
+
+.dz-modal__title {
+  font-size: var(--dz-type-heading-md);
+}
+
+.dz-modal__close {
+  flex: 0 0 auto;
+  inline-size: var(--dz-metric-touch-target-min);
+  block-size: var(--dz-metric-touch-target-min);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: var(--dz-radius-full);
+  background-color: transparent;
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-xl);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dz-modal__close:hover {
+  background-color: rgb(255 255 255 / 0.6);
+  color: var(--dz-color-ink-strongest);
+}
+
+.dz-modal__body {
+  flex: 1 1 auto;
+}
+
+.dz-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--dz-space-2);
+  margin-block-start: var(--dz-space-4);
+  padding-block-start: var(--dz-space-3);
+  border-block-start: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+}
+
+/* Bottom sheet: the mobile presentation of modal content */
+.dz-sheet-root {
+  align-items: end;
+  padding: 0;
+}
+
+.dz-sheet {
+  position: relative;
+  inline-size: 100%;
+  border-start-start-radius: var(--dz-radius-2xl);
+  border-start-end-radius: var(--dz-radius-2xl);
+  border: var(--dz-border-hairline) solid var(--dz-glass-border);
+  background-color: rgb(255 255 255 / 0.9);
+  backdrop-filter: var(--dz-blur-strong);
+  -webkit-backdrop-filter: var(--dz-blur-strong);
+  box-shadow: var(--dz-elevation-overlay);
+  padding: var(--dz-space-4);
+  padding-block-end: calc(var(--dz-space-4) + env(safe-area-inset-bottom, 0px));
+  overflow: auto;
+}
+
+.dz-sheet--peek {
+  max-block-size: 30dvh;
+}
+
+.dz-sheet--half {
+  max-block-size: 55dvh;
+}
+
+.dz-sheet--full {
+  max-block-size: 92dvh;
+}
+
+.dz-sheet__grabber {
+  display: block;
+  inline-size: 2.5rem;
+  block-size: 0.25rem;
+  margin: 0 auto var(--dz-space-3);
+  border-radius: var(--dz-radius-full);
+  background-color: var(--dz-color-surface-dim);
+}
+
+.dz-sheet__title {
+  margin-block-end: var(--dz-space-3);
+  font-size: var(--dz-type-heading-md);
+  text-align: center;
+}
+
+.dz-sheet__footer {
+  display: flex;
+  gap: var(--dz-space-2);
+  margin-block-start: var(--dz-space-4);
+}
+
+/* Navigation bar */
+.dz-glass-nav {
+  z-index: 30;
+}
+
+.dz-glass-nav--sticky {
+  position: sticky;
+  inset-block-start: 0;
+}
+
+.dz-glass-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-4);
+  min-block-size: var(--dz-metric-header-height);
+  padding-inline: var(--dz-space-4);
+  border-block-end: var(--dz-border-hairline) solid var(--dz-glass-border);
+}
+
+.dz-glass-nav--floating .dz-glass-nav__inner {
+  border: var(--dz-border-hairline) solid var(--dz-glass-border);
+  border-radius: var(--dz-radius-full);
+  margin: var(--dz-space-2);
+  background-color: rgb(255 255 255 / var(--dz-glass-alpha-medium));
+  backdrop-filter: var(--dz-blur-strong);
+  -webkit-backdrop-filter: var(--dz-blur-strong);
+  box-shadow: var(--dz-elevation-high);
+}
+
+.dz-glass-nav--solid .dz-glass-nav__inner {
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.dz-glass-nav__brand {
+  flex: 0 0 auto;
+  font-family: var(--dz-font-family-display);
+  font-weight: var(--dz-font-weight-bold);
+}
+
+.dz-glass-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-1);
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  overflow-x: auto;
+}
+
+.dz-glass-nav__actions {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-2);
+}
+
+@media (max-width: 767px) {
+  .dz-glass-nav__links {
+    display: none;
+  }
+}

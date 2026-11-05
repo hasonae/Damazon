@@ -1,0 +1,42 @@
+{
+  "name": "@damazon/api-client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Typed HTTP client for the Damazon API, built from the shared Zod contracts.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/cjs/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:types && npm run build:cjs && npm run build:esm && node scripts/write-dist-markers.mjs",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@damazon/shared-types": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@vitest/coverage-v8": "^4.1.12",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.12"
+  }
+}

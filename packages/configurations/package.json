@@ -1,0 +1,33 @@
+{
+  "name": "@damazon/configurations",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared toolchain presets for the Damazon monorepo: TypeScript, Vite, Vitest, and Prettier configurations consumed by applications and packages.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "types": "./vite/app.config.d.mts",
+  "exports": {
+    "./typescript/base.json": "./typescript/base.json",
+    "./typescript/node-library.json": "./typescript/node-library.json",
+    "./typescript/browser-library.json": "./typescript/browser-library.json",
+    "./typescript/backend.json": "./typescript/backend.json",
+    "./typescript/react-app.json": "./typescript/react-app.json",
+    "./vite/app.config.mjs": {
+      "types": "./vite/app.config.d.mts",
+      "default": "./vite/app.config.mjs"
+    },
+    "./vitest/library.config.ts": "./vitest/library.config.ts",
+    "./prettier.json": "./prettier.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "typescript",
+    "vite",
+    "vitest",
+    "prettier.json"
+  ],
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.12"
+  }
+}

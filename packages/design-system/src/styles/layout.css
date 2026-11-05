@@ -1,0 +1,241 @@
+/* -------------------------------------------------------------------------
+   Layout primitives: shell, stack, cluster, divider
+   ------------------------------------------------------------------------- */
+
+.dz-shell {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100dvh;
+}
+
+.dz-shell__header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 20;
+  min-block-size: var(--dz-metric-header-height);
+}
+
+.dz-shell__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-block-size: 0;
+}
+
+.dz-shell__sidebar {
+  flex: 0 0 var(--dz-metric-sidebar-width);
+  border-inline-end: var(--dz-border-hairline) solid var(--dz-color-surface-dim);
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.dz-shell__sidebar--inline-end {
+  order: 2;
+  border-inline-end: 0;
+  border-inline-start: var(--dz-border-hairline) solid var(--dz-color-surface-dim);
+}
+
+.dz-shell__content {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  padding-inline: var(--dz-space-4);
+  padding-block: var(--dz-space-4);
+}
+
+@media (max-width: 767px) {
+  .dz-shell__body {
+    flex-direction: column;
+  }
+
+  .dz-shell__sidebar {
+    flex: 0 0 auto;
+    border-inline-end: 0;
+    border-block-end: var(--dz-border-hairline) solid var(--dz-color-surface-dim);
+  }
+}
+
+.dz-stack {
+  display: flex;
+  min-inline-size: 0;
+}
+
+.dz-stack--column {
+  flex-direction: column;
+}
+
+.dz-stack--row {
+  flex-direction: row;
+}
+
+.dz-stack--block {
+  display: block;
+}
+
+.dz-stack--gap-none {
+  gap: 0;
+}
+
+.dz-stack--gap-xs {
+  gap: var(--dz-space-1);
+}
+
+.dz-stack--gap-sm {
+  gap: var(--dz-space-2);
+}
+
+.dz-stack--gap-md {
+  gap: var(--dz-space-4);
+}
+
+.dz-stack--gap-lg {
+  gap: var(--dz-space-6);
+}
+
+.dz-stack--gap-xl {
+  gap: var(--dz-space-8);
+}
+
+.dz-stack--align-start {
+  align-items: flex-start;
+}
+
+.dz-stack--align-center {
+  align-items: center;
+}
+
+.dz-stack--align-end {
+  align-items: flex-end;
+}
+
+.dz-stack--align-stretch {
+  align-items: stretch;
+}
+
+.dz-stack--align-baseline {
+  align-items: baseline;
+}
+
+.dz-stack--justify-start {
+  justify-content: flex-start;
+}
+
+.dz-stack--justify-center {
+  justify-content: center;
+}
+
+.dz-stack--justify-end {
+  justify-content: flex-end;
+}
+
+.dz-stack--justify-between {
+  justify-content: space-between;
+}
+
+.dz-stack--justify-around {
+  justify-content: space-around;
+}
+
+.dz-stack--wrap {
+  flex-wrap: wrap;
+}
+
+.dz-cluster {
+  display: flex;
+}
+
+.dz-cluster--gap-xs {
+  gap: var(--dz-space-1);
+}
+
+.dz-cluster--gap-sm {
+  gap: var(--dz-space-2);
+}
+
+.dz-cluster--gap-md {
+  gap: var(--dz-space-4);
+}
+
+.dz-cluster--gap-lg {
+  gap: var(--dz-space-6);
+}
+
+.dz-cluster--justify-start {
+  justify-content: flex-start;
+}
+
+.dz-cluster--justify-center {
+  justify-content: center;
+}
+
+.dz-cluster--justify-end {
+  justify-content: flex-end;
+}
+
+.dz-cluster--justify-between {
+  justify-content: space-between;
+}
+
+.dz-cluster--align-start {
+  align-items: flex-start;
+}
+
+.dz-cluster--align-center {
+  align-items: center;
+}
+
+.dz-cluster--align-end {
+  align-items: flex-end;
+}
+
+.dz-cluster--wrap {
+  flex-wrap: wrap;
+}
+
+.dz-divider {
+  border: 0;
+  margin: 0;
+  background-color: var(--dz-color-surface-base);
+}
+
+.dz-divider--horizontal {
+  block-size: var(--dz-border-hairline);
+  inline-size: 100%;
+}
+
+.dz-divider--vertical {
+  inline-size: var(--dz-border-hairline);
+  align-self: stretch;
+}
+
+.dz-divider--space-none {
+  margin: 0;
+}
+
+.dz-divider--space-sm {
+  margin-block: var(--dz-space-2);
+}
+
+.dz-divider--space-md {
+  margin-block: var(--dz-space-4);
+}
+
+.dz-divider--space-lg {
+  margin-block: var(--dz-space-6);
+}
+
+.dz-divider--labelled {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-3);
+  background-color: transparent;
+}
+
+.dz-divider__rule {
+  flex: 1 1 auto;
+  block-size: var(--dz-border-hairline);
+  background-color: var(--dz-color-surface-base);
+}
+
+.dz-divider__label {
+  flex: 0 0 auto;
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-xs);
+}

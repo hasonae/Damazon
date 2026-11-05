@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Damazon Node Library",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "rootDir": "src",
+    "outDir": "dist/cjs",
+    "declaration": false,
+    "declarationMap": false
+  },
+  "include": ["src/**/*"]
+}

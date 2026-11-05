@@ -1,0 +1,16 @@
+/* -------------------------------------------------------------------------
+   Design token bridge
+
+   Generated from the token maps in `src/tokens` by `scripts/build-styles.mjs`.
+   Edit the token modules, not this file.
+   ------------------------------------------------------------------------- */
+
+:root {
+  --dz-motion-scale: 1;
+}
+
+/* The professional palette is scoped so the admin console overrides colour and
+   disables motion without touching any component rule. */
+[data-dz-theme='professional'] {
+  --dz-motion-scale: 0;
+}

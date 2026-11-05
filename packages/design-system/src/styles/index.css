@@ -1,0 +1,19 @@
+/* -------------------------------------------------------------------------
+   Design system stylesheet entry point
+
+   Import order matters: tokens define the custom properties every later file
+   reads, base sets document defaults, and the administrative override is last
+   so its token values win over the consumer palette.
+
+   This file is built from `src/styles/index.css` and shipped as
+   `@damazon/design-system/styles.css`. It contains no design decisions itself.
+   ------------------------------------------------------------------------- */
+
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './glass.css';
+@import './bento.css';
+@import './controls.css';
+@import './feedback.css';
+@import './professional.css';

@@ -1,0 +1,394 @@
+/* -------------------------------------------------------------------------
+   Controls: buttons and form fields
+   ------------------------------------------------------------------------- */
+
+.dz-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dz-space-2);
+  border: var(--dz-border-hairline) solid transparent;
+  border-radius: var(--dz-radius-full);
+  font-weight: var(--dz-font-weight-semibold);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateY(0) scale(1);
+  transition:
+    background-color calc(var(--dz-duration-fast) * var(--dz-motion-scale))
+      var(--dz-easing-standard),
+    border-color calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    color calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    transform calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    box-shadow calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    filter calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard);
+}
+
+/* Hover lifts the control off the surface; press squashes it back down so a tap
+   always answers with motion (motion scale 0 in the console: instant states). */
+.dz-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.dz-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.97);
+}
+
+.dz-button--sm {
+  padding-block: var(--dz-space-1-5);
+  padding-inline: var(--dz-space-3);
+  font-size: var(--dz-font-size-sm);
+  min-block-size: 2rem;
+}
+
+.dz-button--md {
+  padding-block: var(--dz-space-2-5);
+  padding-inline: var(--dz-space-4);
+  font-size: var(--dz-font-size-base);
+  min-block-size: var(--dz-metric-touch-target-min);
+}
+
+.dz-button--lg {
+  padding-block: var(--dz-space-3-5);
+  padding-inline: var(--dz-space-6);
+  font-size: var(--dz-font-size-md);
+  min-block-size: 3.25rem;
+}
+
+.dz-button--full {
+  inline-size: 100%;
+}
+
+.dz-button:disabled,
+.dz-button--loading {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* The primary control wears the logo's copper gradient: rose-gold into deep
+   copper, with a warm drop shadow that deepens on hover. */
+.dz-button--primary {
+  background-color: var(--dz-color-primary-600);
+  background-image: linear-gradient(
+    135deg,
+    var(--dz-color-primary-600) 0%,
+    var(--dz-color-primary-700) 100%
+  );
+  color: #fff;
+  box-shadow: 0 1px 2px rgb(44 26 16 / 0.18);
+}
+
+.dz-button--primary:hover:not(:disabled) {
+  background-color: var(--dz-color-primary-700);
+  background-image: linear-gradient(
+    135deg,
+    var(--dz-color-primary-700) 0%,
+    var(--dz-color-primary-800) 100%
+  );
+  box-shadow: 0 6px 16px rgb(44 26 16 / 0.24);
+}
+
+.dz-button--secondary {
+  background-color: var(--dz-color-surface-lightest);
+  border-color: var(--dz-color-primary-200);
+  color: var(--dz-color-ink-strong);
+}
+
+.dz-button--secondary:hover:not(:disabled) {
+  background-color: var(--dz-color-primary-50);
+  border-color: var(--dz-color-primary-300);
+  box-shadow: var(--dz-elevation-low);
+}
+
+.dz-button--subtle {
+  background-color: var(--dz-color-surface-light);
+  color: var(--dz-color-ink-strong);
+}
+
+.dz-button--subtle:hover:not(:disabled) {
+  background-color: var(--dz-color-primary-100);
+  color: var(--dz-color-primary-800);
+}
+
+.dz-button--ghost {
+  background-color: transparent;
+  color: var(--dz-color-ink-base);
+}
+
+.dz-button--ghost:hover:not(:disabled) {
+  background-color: var(--dz-color-surface-light);
+  color: var(--dz-color-primary-800);
+}
+
+.dz-button--glass {
+  background-color: rgb(255 255 255 / var(--dz-glass-alpha-medium));
+  border-color: var(--dz-glass-border);
+  backdrop-filter: var(--dz-blur-medium);
+  -webkit-backdrop-filter: var(--dz-blur-medium);
+  color: var(--dz-color-ink-strongest);
+  box-shadow: var(--dz-elevation-low);
+}
+
+.dz-button--glass:hover:not(:disabled) {
+  background-color: rgb(255 255 255 / var(--dz-glass-alpha-heavy));
+  box-shadow: var(--dz-elevation-medium);
+  transform: translateY(-1px);
+}
+
+.dz-button--danger {
+  background-color: var(--dz-color-semantic-danger-base);
+  background-image: linear-gradient(
+    135deg,
+    var(--dz-color-semantic-danger-base) 0%,
+    var(--dz-color-semantic-danger-strong) 100%
+  );
+  color: #fff;
+  box-shadow: 0 1px 2px rgb(130 28 32 / 0.22);
+}
+
+.dz-button--danger:hover:not(:disabled) {
+  background-color: var(--dz-color-semantic-danger-strong);
+  background-image: linear-gradient(
+    135deg,
+    var(--dz-color-semantic-danger-strong) 0%,
+    var(--dz-color-semantic-danger-strong) 100%
+  );
+  box-shadow: 0 6px 16px rgb(130 28 32 / 0.28);
+}
+
+/* Tone variants paint their own solid colour, so the copper gradient must be
+   dropped or it would bleed through the background colour. */
+.dz-button--tone-success.dz-button--primary {
+  background-color: var(--dz-color-semantic-success-base);
+  background-image: none;
+}
+
+.dz-button--tone-warning.dz-button--primary {
+  background-color: var(--dz-color-semantic-warning-base);
+  background-image: none;
+}
+
+.dz-button--tone-info.dz-button--primary {
+  background-color: var(--dz-color-semantic-info-base);
+  background-image: none;
+}
+
+.dz-button--tone-neutral.dz-button--primary {
+  background-color: var(--dz-color-ink-muted);
+  background-image: none;
+}
+
+.dz-button__leading,
+.dz-button__trailing {
+  display: inline-flex;
+  align-items: center;
+}
+
+.dz-button__spinner {
+  inline-size: 1rem;
+  block-size: 1rem;
+  border: var(--dz-border-thick) solid currentcolor;
+  border-block-start-color: transparent;
+  border-radius: var(--dz-radius-full);
+  animation: dz-spin calc(var(--dz-duration-slow) * var(--dz-motion-scale)) linear infinite;
+}
+
+@keyframes dz-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dz-icon-button {
+  padding: 0;
+  inline-size: var(--dz-metric-touch-target-min);
+  block-size: var(--dz-metric-touch-target-min);
+  border-radius: var(--dz-radius-full);
+}
+
+.dz-icon-button--sm {
+  inline-size: 2rem;
+  block-size: 2rem;
+}
+
+.dz-icon-button--lg {
+  inline-size: 3.25rem;
+  block-size: 3.25rem;
+}
+
+.dz-icon-button--active {
+  background-color: var(--dz-color-primary-100);
+  color: var(--dz-color-primary-800);
+}
+
+/* Fields */
+.dz-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-space-1-5);
+}
+
+.dz-field__label {
+  color: var(--dz-color-ink-strong);
+  font-size: var(--dz-font-size-sm);
+  font-weight: var(--dz-font-weight-medium);
+}
+
+.dz-field__required {
+  margin-inline-start: var(--dz-space-1);
+  color: var(--dz-color-semantic-danger-base);
+}
+
+.dz-field__hint {
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-xs);
+}
+
+.dz-field__error {
+  color: var(--dz-color-semantic-danger-base);
+  font-size: var(--dz-font-size-xs);
+}
+
+.dz-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-2);
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-dim);
+  border-radius: var(--dz-radius-md);
+  background-color: var(--dz-color-surface-lightest);
+  padding-inline: var(--dz-space-3);
+  transition:
+    border-color calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    box-shadow calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard);
+}
+
+.dz-input-wrap:focus-within {
+  border-color: var(--dz-color-primary-500);
+  box-shadow: 0 0 0 3px var(--dz-color-primary-100);
+}
+
+.dz-field--invalid .dz-input-wrap {
+  border-color: var(--dz-color-semantic-danger-base);
+}
+
+.dz-input-wrap--sm {
+  min-block-size: 2rem;
+}
+
+.dz-input-wrap--md {
+  min-block-size: var(--dz-metric-touch-target-min);
+}
+
+.dz-input-wrap--lg {
+  min-block-size: 3.25rem;
+}
+
+.dz-input-wrap__leading,
+.dz-input-wrap__trailing {
+  display: inline-flex;
+  align-items: center;
+  color: var(--dz-color-ink-muted);
+  flex: 0 0 auto;
+}
+
+.dz-input {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  padding-block: 0;
+}
+
+.dz-textarea,
+.dz-select {
+  inline-size: 100%;
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-dim);
+  border-radius: var(--dz-radius-md);
+  background-color: var(--dz-color-surface-lightest);
+  padding-inline: var(--dz-space-3);
+  padding-block: var(--dz-space-2);
+}
+
+.dz-textarea {
+  resize: vertical;
+  min-block-size: 6rem;
+  font-family: inherit;
+}
+
+.dz-select {
+  min-block-size: var(--dz-metric-touch-target-min);
+  cursor: pointer;
+}
+
+.dz-select--sm {
+  min-block-size: 2rem;
+}
+
+.dz-select--lg {
+  min-block-size: 3.25rem;
+}
+
+.dz-checkbox {
+  display: block;
+}
+
+.dz-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  inline-size: 0;
+  block-size: 0;
+}
+
+.dz-checkbox__label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--dz-space-2-5);
+  cursor: pointer;
+}
+
+.dz-checkbox__box {
+  flex: 0 0 auto;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  margin-block-start: 0.1rem;
+  border: var(--dz-border-thick) solid var(--dz-color-surface-dim);
+  border-radius: var(--dz-radius-xs);
+  background-color: var(--dz-color-surface-lightest);
+  position: relative;
+}
+
+.dz-checkbox__input:checked + .dz-checkbox__label .dz-checkbox__box {
+  background-color: var(--dz-color-primary-600);
+  border-color: var(--dz-color-primary-600);
+}
+
+.dz-checkbox__input:checked + .dz-checkbox__label .dz-checkbox__box::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 0.125rem;
+  inset-inline-start: 0.375rem;
+  inline-size: 0.3rem;
+  block-size: 0.6rem;
+  border-inline-end: var(--dz-border-thick) solid #fff;
+  border-block-end: var(--dz-border-thick) solid #fff;
+  transform: rotate(45deg);
+}
+
+.dz-checkbox__input:focus-visible + .dz-checkbox__label .dz-checkbox__box {
+  outline: 2px solid var(--dz-color-accent-500);
+  outline-offset: 2px;
+}
+
+.dz-checkbox__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-space-0-5);
+  font-size: var(--dz-font-size-base);
+}
+
+.dz-checkbox__description {
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-xs);
+}

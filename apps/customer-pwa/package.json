@@ -1,0 +1,36 @@
+{
+  "name": "@damazon/customer-pwa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Damazon customer/business/restaurant/delivery/driver progressive web application.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@damazon/api-client": "0.1.0",
+    "@damazon/design-system": "0.1.0",
+    "@damazon/shared-types": "0.1.0",
+    "@damazon/utilities": "0.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^4.1.12",
+    "typescript": "^5.7.2",
+    "vite": "^6.4.5",
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^4.1.12"
+  }
+}

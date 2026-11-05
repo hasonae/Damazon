@@ -1,0 +1,384 @@
+/* -------------------------------------------------------------------------
+   Feedback and data display
+
+   Badges, avatars, empty states, progress, and the administrative table.
+   The table is deliberately animation-free: the hover affordance is an
+   instant background change, which is what long back-office sessions need.
+   ------------------------------------------------------------------------- */
+
+.dz-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dz-space-1);
+  border-radius: var(--dz-radius-full);
+  font-weight: var(--dz-font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.dz-badge--sm {
+  padding: var(--dz-space-1) var(--dz-space-2);
+  font-size: var(--dz-font-size-2xs);
+}
+
+.dz-badge--md {
+  padding: var(--dz-space-1-5) var(--dz-space-3);
+  font-size: var(--dz-font-size-xs);
+}
+
+.dz-badge--soft.dz-badge--tone-neutral {
+  background-color: var(--dz-color-surface-light);
+  color: var(--dz-color-ink-base);
+}
+
+.dz-badge--soft.dz-badge--tone-primary {
+  background-color: var(--dz-color-primary-100);
+  color: var(--dz-color-primary-800);
+}
+
+.dz-badge--soft.dz-badge--tone-accent {
+  background-color: var(--dz-color-accent-100);
+  color: var(--dz-color-accent-800);
+}
+
+.dz-badge--soft.dz-badge--tone-success {
+  background-color: var(--dz-color-semantic-success-surface);
+  color: var(--dz-color-semantic-success-strong);
+}
+
+.dz-badge--soft.dz-badge--tone-warning {
+  background-color: var(--dz-color-semantic-warning-surface);
+  color: var(--dz-color-semantic-warning-strong);
+}
+
+.dz-badge--soft.dz-badge--tone-danger {
+  background-color: var(--dz-color-semantic-danger-surface);
+  color: var(--dz-color-semantic-danger-strong);
+}
+
+.dz-badge--soft.dz-badge--tone-info {
+  background-color: var(--dz-color-semantic-info-surface);
+  color: var(--dz-color-semantic-info-strong);
+}
+
+.dz-badge--solid.dz-badge--tone-neutral {
+  background-color: var(--dz-color-ink-muted);
+  color: #fff;
+}
+
+.dz-badge--solid.dz-badge--tone-primary {
+  background-color: var(--dz-color-primary-600);
+  color: #fff;
+}
+
+.dz-badge--solid.dz-badge--tone-success {
+  background-color: var(--dz-color-semantic-success-base);
+  color: #fff;
+}
+
+.dz-badge--solid.dz-badge--tone-warning {
+  background-color: var(--dz-color-semantic-warning-base);
+  color: #fff;
+}
+
+.dz-badge--solid.dz-badge--tone-danger {
+  background-color: var(--dz-color-semantic-danger-base);
+  color: #fff;
+}
+
+.dz-badge--outline {
+  border: var(--dz-border-hairline) solid currentcolor;
+  background-color: transparent;
+}
+
+.dz-avatar {
+  display: grid;
+  place-items: center;
+  object-fit: cover;
+  background-color: var(--dz-color-primary-100);
+  color: var(--dz-color-primary-800);
+  font-weight: var(--dz-font-weight-semibold);
+  flex: 0 0 auto;
+}
+
+.dz-avatar--circle {
+  border-radius: var(--dz-radius-full);
+}
+
+.dz-avatar--rounded {
+  border-radius: var(--dz-radius-md);
+}
+
+.dz-avatar--xs {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  font-size: var(--dz-font-size-3xs);
+}
+
+.dz-avatar--sm {
+  inline-size: 2rem;
+  block-size: 2rem;
+  font-size: var(--dz-font-size-2xs);
+}
+
+.dz-avatar--md {
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  font-size: var(--dz-font-size-sm);
+}
+
+.dz-avatar--lg {
+  inline-size: 4rem;
+  block-size: 4rem;
+  font-size: var(--dz-font-size-md);
+}
+
+.dz-avatar--xl {
+  inline-size: 6rem;
+  block-size: 6rem;
+  font-size: var(--dz-font-size-xl);
+}
+
+.dz-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dz-space-2);
+  padding: var(--dz-space-10) var(--dz-space-4);
+  text-align: center;
+  color: var(--dz-color-ink-muted);
+}
+
+.dz-empty-state__icon {
+  color: var(--dz-color-ink-faint);
+}
+
+.dz-empty-state__title {
+  color: var(--dz-color-ink-strong);
+  font-weight: var(--dz-font-weight-semibold);
+}
+
+.dz-empty-state__description {
+  max-inline-size: 28rem;
+  font-size: var(--dz-font-size-sm);
+}
+
+.dz-empty-state__action {
+  margin-block-start: var(--dz-space-2);
+}
+
+.dz-spinner {
+  display: inline-block;
+  border: var(--dz-border-thick) solid var(--dz-color-surface-dim);
+  border-block-start-color: var(--dz-color-primary-600);
+  border-radius: var(--dz-radius-full);
+  animation: dz-spin calc(var(--dz-duration-slow) * var(--dz-motion-scale)) linear infinite;
+}
+
+.dz-spinner--sm {
+  inline-size: 1rem;
+  block-size: 1rem;
+}
+
+.dz-spinner--md {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+}
+
+.dz-spinner--lg {
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+}
+
+.dz-skeleton {
+  display: block;
+  background-color: var(--dz-color-surface-light);
+  animation: dz-pulse calc(var(--dz-duration-deliberate) * var(--dz-motion-scale)) ease-in-out
+    infinite;
+}
+
+.dz-skeleton--sm {
+  border-radius: var(--dz-radius-sm);
+}
+
+.dz-skeleton--md {
+  border-radius: var(--dz-radius-md);
+}
+
+.dz-skeleton--lg {
+  border-radius: var(--dz-radius-lg);
+}
+
+.dz-skeleton--full {
+  border-radius: var(--dz-radius-full);
+}
+
+@keyframes dz-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.dz-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-2);
+}
+
+.dz-progress__label,
+.dz-progress__value {
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-xs);
+}
+
+.dz-progress__value {
+  font-family: var(--dz-font-family-numeric);
+  font-variant-numeric: tabular-nums;
+}
+
+.dz-progress__track {
+  flex: 1 1 auto;
+  block-size: 0.5rem;
+  border-radius: var(--dz-radius-full);
+  background-color: var(--dz-color-surface-base);
+  overflow: hidden;
+}
+
+.dz-progress__fill {
+  display: block;
+  block-size: 100%;
+  border-radius: inherit;
+  background-color: var(--dz-color-primary-600);
+}
+
+.dz-progress__fill--tone-success {
+  background-color: var(--dz-color-semantic-success-base);
+}
+
+.dz-progress__fill--tone-warning {
+  background-color: var(--dz-color-semantic-warning-base);
+}
+
+.dz-progress__fill--tone-danger {
+  background-color: var(--dz-color-semantic-danger-base);
+}
+
+.dz-progress__fill--tone-info {
+  background-color: var(--dz-color-semantic-info-base);
+}
+
+.dz-table-scroll {
+  inline-size: 100%;
+  overflow-x: auto;
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  border-radius: var(--dz-radius-lg);
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.dz-table-scroll--sticky .dz-table__head {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+}
+
+.dz-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--dz-font-size-sm);
+}
+
+.dz-table__caption {
+  padding: var(--dz-space-3) var(--dz-space-4);
+  text-align: start;
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-xs);
+  border-block-end: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+}
+
+.dz-table__head th {
+  padding: var(--dz-space-3) var(--dz-space-4);
+  text-align: start;
+  background-color: var(--dz-color-surface-lighter);
+  border-block-end: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  color: var(--dz-color-ink-base);
+  font-weight: var(--dz-font-weight-semibold);
+  white-space: nowrap;
+}
+
+.dz-table--dense .dz-table__head th,
+.dz-table--dense .dz-table__row td {
+  padding: var(--dz-space-2) var(--dz-space-3);
+}
+
+.dz-table__row td {
+  padding: var(--dz-space-3) var(--dz-space-4);
+  border-block-end: var(--dz-border-hairline) solid var(--dz-color-surface-light);
+  vertical-align: middle;
+}
+
+.dz-table__row:last-child td {
+  border-block-end: 0;
+}
+
+.dz-table__row--clickable {
+  cursor: pointer;
+}
+
+.dz-table__row--clickable:hover {
+  background-color: var(--dz-color-surface-lighter);
+}
+
+.dz-table__cell--numeric {
+  text-align: end;
+  font-family: var(--dz-font-family-numeric);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.dz-table__cell--center {
+  text-align: center;
+}
+
+.dz-table__cell--end {
+  text-align: end;
+}
+
+.dz-table-empty {
+  border: var(--dz-border-hairline) dashed var(--dz-color-surface-dim);
+  border-radius: var(--dz-radius-lg);
+  background-color: var(--dz-color-surface-lighter);
+}
+
+.dz-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dz-space-3);
+  padding: var(--dz-space-3);
+}
+
+.dz-pagination__step {
+  min-block-size: 2.25rem;
+  padding-inline: var(--dz-space-3);
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-dim);
+  border-radius: var(--dz-radius-full);
+  background-color: var(--dz-color-surface-lightest);
+  color: var(--dz-color-ink-strong);
+  font-size: var(--dz-font-size-sm);
+  cursor: pointer;
+}
+
+.dz-pagination__step:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dz-pagination__summary {
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-sm);
+}

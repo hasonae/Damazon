@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./apps/backend/src/*"],
+      "@shared/*": ["./packages/shared-types/src/*"],
+      "@utilities/*": ["./packages/utilities/src/*"]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Damazon Backend",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "rootDir": ".",
+    "noEmit": true,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*", "test/**/*", "prisma/**/*.ts", "vitest*.ts"]
+}

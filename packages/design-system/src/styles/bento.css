@@ -1,0 +1,222 @@
+/* -------------------------------------------------------------------------
+   Bento layout
+
+   A responsive grid of weighted cells used by the consumer homepage, offers,
+   categories, recommendations, and dashboards. Spans apply from the md
+   breakpoint upward so a phone never shows empty tracks.
+   ------------------------------------------------------------------------- */
+
+.dz-bento-container {
+  margin-inline: auto;
+  padding-inline: var(--dz-space-4);
+  padding-block: var(--dz-space-4);
+}
+
+.dz-bento-container--reading {
+  max-inline-size: var(--dz-metric-reading-max-width);
+}
+
+.dz-bento-container--content {
+  max-inline-size: var(--dz-metric-content-max-width);
+}
+
+.dz-bento-container--full {
+  max-inline-size: none;
+}
+
+.dz-bento-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-space-4);
+}
+
+.dz-bento-section__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--dz-space-3);
+}
+
+.dz-bento-section__title {
+  font-size: var(--dz-type-heading-md);
+}
+
+.dz-bento-section__description {
+  margin-block-start: var(--dz-space-1);
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-type-body-sm);
+}
+
+.dz-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.dz-bento-grid--gap-sm {
+  gap: var(--dz-space-2);
+}
+
+.dz-bento-grid--gap-md {
+  gap: var(--dz-space-4);
+}
+
+.dz-bento-grid--gap-lg {
+  gap: var(--dz-space-6);
+}
+
+@media (min-width: 768px) {
+  .dz-bento-grid--cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dz-bento-grid--cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .dz-bento-grid--cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .dz-bento-card {
+    grid-column: span var(--dz-bento-cols, 1);
+    grid-row: span var(--dz-bento-rows, 1);
+  }
+}
+
+.dz-bento-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  border-radius: var(--dz-radius, var(--dz-radius-xl));
+  overflow: hidden;
+}
+
+.dz-bento-card--pad-none {
+  padding: 0;
+}
+
+.dz-bento-card--pad-sm {
+  padding: var(--dz-space-3);
+}
+
+.dz-bento-card--pad-md {
+  padding: var(--dz-space-4);
+}
+
+.dz-bento-card--pad-lg {
+  padding: var(--dz-space-6);
+}
+
+.dz-bento-card--surface-glass {
+  border: var(--dz-border-hairline) solid var(--dz-glass-border);
+  background-color: rgb(255 255 255 / var(--dz-glass-alpha-light));
+  backdrop-filter: var(--dz-blur-medium);
+  -webkit-backdrop-filter: var(--dz-blur-medium);
+  box-shadow: var(--dz-elevation-medium);
+}
+
+.dz-bento-card--surface-solid {
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.dz-bento-card--surface-gradient {
+  color: var(--dz-color-primary-900);
+  background-image: linear-gradient(
+    135deg,
+    var(--dz-color-primary-100) 0%,
+    var(--dz-color-accent-200) 100%
+  );
+}
+
+.dz-bento-card--surface-image {
+  background-color: var(--dz-color-surface-base);
+  background-size: cover;
+  background-position: center;
+}
+
+.dz-bento-card--interactive {
+  cursor: pointer;
+  transition:
+    transform calc(var(--dz-duration-base) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    box-shadow calc(var(--dz-duration-base) * var(--dz-motion-scale)) var(--dz-easing-standard);
+}
+
+.dz-bento-card--interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dz-elevation-high);
+}
+
+.dz-bento-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: var(--dz-radius-3xl);
+  isolation: isolate;
+}
+
+.dz-bento-hero--min-sm {
+  min-block-size: 14rem;
+}
+
+.dz-bento-hero--min-md {
+  min-block-size: 20rem;
+}
+
+.dz-bento-hero--min-lg {
+  min-block-size: 28rem;
+}
+
+.dz-bento-hero__media {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.dz-bento-hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.dz-bento-hero--light .dz-bento-hero__scrim {
+  background-image: linear-gradient(to top, rgb(44 26 16 / 0.35), rgb(44 26 16 / 0.05));
+}
+
+.dz-bento-hero--medium .dz-bento-hero__scrim {
+  background-image: linear-gradient(to top, rgb(44 26 16 / 0.6), rgb(44 26 16 / 0.1));
+}
+
+.dz-bento-hero--strong .dz-bento-hero__scrim {
+  background-image: linear-gradient(to top, rgb(44 26 16 / 0.82), rgb(44 26 16 / 0.28));
+}
+
+.dz-bento-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-space-2);
+  inline-size: 100%;
+  padding: var(--dz-space-6);
+  color: #fff;
+  text-shadow: 0 1px 2px rgb(44 26 16 / 0.4);
+}
+
+.dz-bento-hero__content--start {
+  align-items: flex-start;
+  text-align: start;
+}
+
+.dz-bento-hero__content--center {
+  align-items: center;
+  text-align: center;
+}
+
+.dz-bento-hero__content--end {
+  align-items: flex-end;
+  text-align: end;
+}

@@ -1,0 +1,52 @@
+services:
+  - type: web
+    name: damazon-api
+    runtime: node
+    plan: free
+    autoDeploy: false
+    buildCommand: npm ci && npm run db:generate && npm run build --workspace @damazon/shared-types && npm run build --workspace @damazon/utilities && npm run build --workspace @damazon/backend
+    startCommand: npm run db:deploy --workspace @damazon/backend && npm run start --workspace @damazon/backend
+    healthCheckPath: /api/v1/health/ready
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_PREFIX
+        value: api/v1
+      - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: STORAGE_ENDPOINT
+        sync: false
+      - key: STORAGE_BUCKET
+        sync: false
+      - key: STORAGE_ACCESS_KEY
+        sync: false
+      - key: STORAGE_SECRET_KEY
+        sync: false
+      - key: STORAGE_REGION
+        value: auto
+      - key: STORAGE_FORCE_PATH_STYLE
+        value: 'true'
+      - key: SMTP_HOST
+        value: smtp.resend.com
+      - key: SMTP_PORT
+        value: '2587'
+      - key: SMTP_SECURE
+        value: 'false'
+      - key: SMTP_USER
+        value: resend
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      - key: CUSTOMER_APP_ORIGIN
+        value: https://hasonae.github.io/Damazon/
+      - key: ADMIN_APP_ORIGIN
+        value: https://hasonae.github.io/Damazon/admin/
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://hasonae.github.io

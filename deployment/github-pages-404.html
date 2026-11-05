@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <script>
+      const path = window.location.pathname;
+      const segments = path.split('/').filter(Boolean);
+      const repository = segments[0];
+      const isAdmin = segments[1] === 'admin';
+      const appBase = `/${repository}/${isAdmin ? 'admin/' : ''}`;
+      const requestedRoute = `${path}${window.location.search}${window.location.hash}`;
+      const redirect = new URLSearchParams({ __ghPagesRoute: requestedRoute });
+      window.location.replace(`${appBase}?${redirect}`);
+    </script>
+    <title>Redirecting to Damazon</title>
+  </head>
+  <body>
+    <p>Redirecting to Damazon…</p>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+{
+  "name": "damazon",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Damazon - Enterprise Marketplace Platform for Syria (customer/business/driver PWA, admin PWA, backend API)",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=10.9.0"
+  },
+  "workspaces": [
+    "packages/shared-types",
+    "packages/utilities",
+    "packages/design-system",
+    "packages/api-client",
+    "packages/configurations",
+    "apps/backend",
+    "apps/customer-pwa",
+    "apps/admin-pwa"
+  ],
+  "scripts": {
+    "build": "npm run build:packages && npm run build:apps",
+    "build:packages": "npm run build -w @damazon/shared-types -w @damazon/utilities -w @damazon/design-system -w @damazon/api-client",
+    "build:apps": "npm run build -w @damazon/backend -w @damazon/customer-pwa -w @damazon/admin-pwa",
+    "dev": "npm run start:dev -w @damazon/backend",
+    "dev:customer": "npm run dev -w @damazon/customer-pwa",
+    "dev:admin": "npm run dev -w @damazon/admin-pwa",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,cjs,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,cjs,json,md,yml,yaml}\"",
+    "test": "npm run test --workspaces --if-present",
+    "test:cov": "npm run test:cov --workspaces --if-present",
+    "db:generate": "npm run db:generate -w @damazon/backend",
+    "db:migrate": "npm run db:migrate -w @damazon/backend",
+    "db:deploy": "npm run db:deploy -w @damazon/backend",
+    "db:seed": "npm run db:seed -w @damazon/backend",
+    "db:seed:reference": "npm run db:seed:reference -w @damazon/backend",
+    "db:reset": "npm run db:reset -w @damazon/backend",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test",
+    "clean": "node scripts/clean.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.17.0",
+    "eslint-import-resolver-typescript": "^3.10.1",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.0"
+  },
+  "overrides": {
+    "body-parser": "^2.4.0",
+    "deepmerge-ts": "^8.0.2",
+    "multer": "^2.5.0",
+    "qs": "^6.17.1"
+  }
+}

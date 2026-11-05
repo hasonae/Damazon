@@ -1,0 +1,227 @@
+/**
+ * Console styles.
+ *
+ * These rules compose the design system's professional tokens. Nothing here
+ * animates, nothing is translucent, and nothing is styled for spectacle: the
+ * console is used for hours at a time, so density and legibility win.
+ */
+
+body[data-dz-theme='professional'] {
+  background-color: var(--dz-color-surface-lighter);
+}
+
+.console-shell {
+  display: grid;
+  grid-template-columns: var(--dz-metric-sidebar-width) minmax(0, 1fr);
+  min-block-size: 100dvh;
+}
+
+.console-shell__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-space-4);
+  padding: var(--dz-space-4);
+  border-inline-end: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.console-shell__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-2);
+  font-family: var(--dz-font-family-display);
+  font-size: var(--dz-font-size-md);
+  font-weight: var(--dz-font-weight-bold);
+  color: var(--dz-color-accent-800);
+}
+
+.console-shell__brand img {
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  border-radius: var(--dz-radius-sm);
+}
+
+.console-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.console-nav__link {
+  display: block;
+  padding: var(--dz-space-2) var(--dz-space-3);
+  border-inline-end: 3px solid transparent;
+  border-radius: var(--dz-radius-sm);
+  color: var(--dz-color-ink-base);
+  font-size: var(--dz-font-size-sm);
+  text-decoration: none;
+  transition:
+    background-color calc(var(--dz-duration-fast) * var(--dz-motion-scale))
+      var(--dz-easing-standard),
+    color calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    border-color calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard);
+}
+
+.console-nav__link:hover {
+  background-color: var(--dz-color-surface-lighter);
+  color: var(--dz-color-ink-strong);
+}
+
+/* Copper marks the active section: the logo's brand colour against the
+   neutral console, with a solid rail facing the content area. */
+.console-nav__link--active {
+  background-color: var(--dz-color-accent-100);
+  border-inline-end-color: var(--dz-color-accent-500);
+  color: var(--dz-color-accent-800);
+  font-weight: var(--dz-font-weight-semibold);
+}
+
+.console-shell__account {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-2);
+}
+
+.console-shell__storefront {
+  inline-size: 100%;
+  background-color: var(--dz-color-accent-100);
+  border-color: var(--dz-color-accent-200);
+  color: var(--dz-color-accent-800);
+  font-weight: var(--dz-font-weight-semibold);
+}
+
+.console-shell__account-meta {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+  font-size: var(--dz-font-size-xs);
+}
+
+.console-shell__account-meta span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.console-shell__main {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.console-shell__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--dz-space-3);
+  padding: var(--dz-space-3) var(--dz-space-4);
+  border-block-end: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.console-shell__title {
+  font-size: var(--dz-type-heading-sm);
+}
+
+.console-shell__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--dz-space-2);
+}
+
+.console-shell__content {
+  flex: 1 1 auto;
+  padding: var(--dz-space-4);
+}
+
+.console-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.25rem;
+  padding-inline: var(--dz-space-3);
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-dim);
+  border-radius: var(--dz-radius-sm);
+  background-color: var(--dz-color-surface-lightest);
+  color: var(--dz-color-ink-strong);
+  font-size: var(--dz-font-size-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color calc(var(--dz-duration-fast) * var(--dz-motion-scale))
+      var(--dz-easing-standard),
+    border-color calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard),
+    color calc(var(--dz-duration-fast) * var(--dz-motion-scale)) var(--dz-easing-standard);
+}
+
+.console-button:hover {
+  background-color: var(--dz-color-accent-100);
+  border-color: var(--dz-color-accent-300);
+  color: var(--dz-color-accent-800);
+}
+
+.console-button:active {
+  background-color: var(--dz-color-accent-200);
+}
+
+.console-signin {
+  display: grid;
+  place-items: center;
+  min-block-size: 100dvh;
+  padding: var(--dz-space-4);
+}
+
+.console-signin__card {
+  inline-size: 100%;
+  max-inline-size: 24rem;
+  padding: var(--dz-space-5);
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  border-block-start: 3px solid var(--dz-color-accent-500);
+  border-radius: var(--dz-radius-md);
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.console-signin__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dz-space-3);
+  margin-block-start: var(--dz-space-4);
+}
+
+.console-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: var(--dz-space-3);
+  margin-block-end: var(--dz-space-4);
+}
+
+.console-metric {
+  padding: var(--dz-space-3);
+  border: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  border-radius: var(--dz-radius-md);
+  background-color: var(--dz-color-surface-lightest);
+}
+
+.console-metric__label {
+  color: var(--dz-color-ink-muted);
+  font-size: var(--dz-font-size-xs);
+}
+
+.console-metric__value {
+  margin-block-start: var(--dz-space-1);
+  font-size: var(--dz-type-money-lg);
+}
+
+@media (max-width: 1023px) {
+  .console-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .console-shell__sidebar {
+    border-inline-end: 0;
+    border-block-end: var(--dz-border-hairline) solid var(--dz-color-surface-base);
+  }
+}

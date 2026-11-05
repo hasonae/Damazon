@@ -1,0 +1,49 @@
+{
+  "name": "@damazon/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Damazon design system: design tokens, glass and bento primitives, and neutral components shared by both PWAs.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/cjs/index.js"
+    },
+    "./styles.css": "./dist/styles/index.css",
+    "./tokens.css": "./dist/styles/tokens.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:types && npm run build:cjs && npm run build:esm && npm run build:styles && node scripts/write-dist-markers.mjs",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:styles": "node scripts/build-styles.mjs",
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint src",
+    "test": "vitest run --passWithNoTests"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitest/coverage-v8": "^4.1.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.12"
+  }
+}

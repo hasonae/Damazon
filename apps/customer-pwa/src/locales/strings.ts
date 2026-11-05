@@ -1,0 +1,565 @@
+/**
+ * Arabic and English UI strings.
+ *
+ * Arabic is the default and the fallback for every key. A missing English string
+ * falls back to Arabic rather than showing a raw key, because a visible key in a
+ * shipping interface is worse than an untranslated line.
+ */
+
+import type { SupportedLocale } from '@damazon/shared-types';
+
+export const STRINGS = {
+  'app.name': { ar: 'دامازون', en: 'Damazon' },
+  'app.tagline': { ar: 'سوق سوريا الإلكتروني', en: 'The Syrian marketplace' },
+
+  'nav.home': { ar: 'الرئيسية', en: 'Home' },
+  'nav.search': { ar: 'البحث', en: 'Search' },
+  'nav.orders': { ar: 'طلباتي', en: 'Orders' },
+  'nav.favorites': { ar: 'المفضلة', en: 'Favorites' },
+  'nav.profile': { ar: 'حسابي', en: 'Profile' },
+  'nav.cart': { ar: 'السلة', en: 'Cart' },
+  'nav.notifications': { ar: 'الإشعارات', en: 'Notifications' },
+  'nav.support': { ar: 'الدعم', en: 'Support' },
+
+  'auth.signIn': { ar: 'تسجيل الدخول', en: 'Sign in' },
+  'auth.signOut': { ar: 'تسجيل الخروج', en: 'Sign out' },
+  'auth.register': { ar: 'إنشاء حساب', en: 'Create account' },
+  'auth.identifier': { ar: 'رقم الهاتف أو البريد الإلكتروني', en: 'Phone number or email' },
+  'auth.password': { ar: 'كلمة المرور', en: 'Password' },
+  'auth.firstName': { ar: 'الاسم الأول', en: 'First name' },
+  'auth.lastName': { ar: 'اسم العائلة', en: 'Last name' },
+  'auth.email': { ar: 'البريد الإلكتروني', en: 'Email' },
+  'auth.phone': { ar: 'رقم الهاتف السوري', en: 'Syrian phone number' },
+  'auth.verifyEmail': { ar: 'تأكيد البريد وإنشاء الحساب', en: 'Verify email and create account' },
+  'auth.resendVerification': { ar: 'إعادة إرسال رابط التحقق', en: 'Resend verification link' },
+  'auth.verificationSent': {
+    ar: 'أرسلنا رابطاً إلى بريدك الإلكتروني. افتحه لإكمال العملية.',
+    en: 'We sent a link to your email address. Open it to finish.',
+  },
+  'auth.emailVerificationInstructions': {
+    ar: 'استخدم الرابط المرسل إلى بريدك الإلكتروني. تنتهي صلاحيته خلال 15 دقيقة ويعمل مرة واحدة.',
+    en: 'Use the link sent to your email. It expires in 15 minutes and works only once.',
+  },
+  'auth.newPassword': { ar: 'كلمة المرور الجديدة', en: 'New password' },
+  'auth.forgotPassword': { ar: 'نسيت كلمة المرور؟', en: 'Forgot password?' },
+  'auth.recoverPassword': { ar: 'استعادة كلمة المرور', en: 'Recover password' },
+  'auth.recoveryInstructions': {
+    ar: 'إذا كان الحساب موجوداً، فسيصل رابط استعادة إلى بريده الإلكتروني المسجل.',
+    en: 'If the account exists, a recovery link will be sent to its registered email address.',
+  },
+  'auth.invalidVerificationLink': {
+    ar: 'رابط غير صالح أو منتهي الصلاحية. اطلب رابطاً جديداً.',
+    en: 'This link is invalid or expired. Request a new one.',
+  },
+  'auth.completeRecovery': { ar: 'تغيير كلمة المرور', en: 'Reset password' },
+  'auth.noAccount': { ar: 'ليس لديك حساب؟', en: 'No account yet?' },
+  'auth.hasAccount': { ar: 'لديك حساب بالفعل؟', en: 'Already have an account?' },
+  'auth.invalidCredentials': { ar: 'بيانات الدخول غير صحيحة', en: 'Incorrect sign-in details' },
+  'auth.locked': { ar: 'الحساب مقفل مؤقتاً بسبب محاولات متكررة', en: 'Account temporarily locked' },
+
+  'zone.title': { ar: 'مناطق التوصيل', en: 'Delivery zones' },
+  'zone.choose': { ar: 'اختر منطقة التوصيل', en: 'Choose your delivery zone' },
+  'zone.required': {
+    ar: 'يجب اختيار منطقة توصيل قبل الطلب',
+    en: 'Pick a delivery zone before ordering',
+  },
+  'zone.notCovered': {
+    ar: 'هذه المنطقة غير مغطاة من قبل المتجر',
+    en: 'This zone is not covered by the store',
+  },
+  'zone.fee': { ar: 'رسوم التوصيل', en: 'Delivery fee' },
+  'zone.estimated': { ar: 'الوقت المتوقع', en: 'Estimated time' },
+  'zone.default': { ar: 'المنطقة الافتراضية', en: 'Default zone' },
+  'zone.remove': { ar: 'إزالة المنطقة', en: 'Remove zone' },
+
+  'home.greeting': { ar: 'أهلاً بك', en: 'Welcome' },
+  'home.categories': { ar: 'الأقسام', en: 'Categories' },
+  'home.categories.restaurants': { ar: 'مطاعم', en: 'Restaurants' },
+  'home.categories.grocery': { ar: 'بقالة', en: 'Grocery' },
+  'home.categories.supermarket': { ar: 'سوبرماركت', en: 'Supermarket' },
+  'home.categories.pharmacy': { ar: 'صيدلية', en: 'Pharmacy' },
+  'home.categories.bakery': { ar: 'مخبوزات', en: 'Bakery' },
+  'home.categories.electronics': { ar: 'إلكترونيات', en: 'Electronics' },
+  'home.categories.home': { ar: 'المنزل', en: 'Home goods' },
+  'home.categories.services': { ar: 'خدمات', en: 'Services' },
+  'home.nearYou': { ar: 'بالقرب منك', en: 'Near you' },
+  'home.offers': { ar: 'العروض', en: 'Offers' },
+  'home.recommended': { ar: 'مقترحات لك', en: 'Recommended' },
+  'home.advertisements': { ar: 'إعلانات وعروض', en: 'Promotions' },
+
+  'search.placeholder': {
+    ar: 'ابحث عن متجر أو مطعم أو منتج',
+    en: 'Search stores, restaurants, or products',
+  },
+  'search.recent': { ar: 'عمليات بحث سابقة', en: 'Recent searches' },
+  'search.clearRecent': { ar: 'مسح', en: 'Clear' },
+  'search.noResults': { ar: 'لا توجد نتائج', en: 'No results' },
+
+  'cart.title': { ar: 'سلة التسوق', en: 'Cart' },
+  'cart.empty': { ar: 'سلتك فارغة', en: 'Your cart is empty' },
+  'cart.subtotal': { ar: 'المجموع الفرعي', en: 'Subtotal' },
+  'cart.deliveryFee': { ar: 'رسوم التوصيل', en: 'Delivery fee' },
+  'cart.discount': { ar: 'الخصم', en: 'Discount' },
+  'cart.total': { ar: 'الإجمالي', en: 'Total' },
+  'cart.checkout': { ar: 'إتمام الطلب', en: 'Checkout' },
+  'cart.separateBusinesses': {
+    ar: 'لا يمكن جمع منتجات من متجرين مختلفين في طلب واحد',
+    en: 'Items from different businesses cannot share one order',
+  },
+  'cart.quantity': { ar: 'الكمية', en: 'Quantity' },
+  'cart.remove': { ar: 'إزالة', en: 'Remove' },
+
+  'checkout.address': { ar: 'العنوان', en: 'Address' },
+  'checkout.landmark': { ar: 'علامة مميزة', en: 'Nearest landmark' },
+  'checkout.note': { ar: 'ملاحظات', en: 'Notes' },
+  'checkout.payment': { ar: 'طريقة الدفع', en: 'Payment method' },
+  'checkout.cashOnDelivery': { ar: 'الدفع عند الاستلام', en: 'Cash on delivery' },
+  'checkout.placeOrder': { ar: 'تأكيد الطلب', en: 'Place order' },
+
+  'order.pending': { ar: 'بانتظار القبول', en: 'Pending' },
+  'order.accepted': { ar: 'تم القبول', en: 'Accepted' },
+  'order.preparing': { ar: 'قيد التحضير', en: 'Preparing' },
+  'order.ready': { ar: 'جاهز', en: 'Ready' },
+  'order.outForDelivery': { ar: 'خرج للتوصيل', en: 'Out for delivery' },
+  'order.delivered': { ar: 'تم التوصيل', en: 'Delivered' },
+  'order.cancelled': { ar: 'ملغي', en: 'Cancelled' },
+  'order.cancel': { ar: 'إلغاء الطلب', en: 'Cancel order' },
+  'order.reorder': { ar: 'إعادة الطلب', en: 'Reorder' },
+  'order.timeline': { ar: 'مراحل الطلب', en: 'Order timeline' },
+  'order.empty': { ar: 'لا توجد طلبات بعد', en: 'No orders yet' },
+  'order.rate': { ar: 'قيّم الطلب', en: 'Rate this order' },
+
+  'profile.title': { ar: 'الملف الشخصي', en: 'Profile' },
+  'profile.language': { ar: 'اللغة', en: 'Language' },
+  'profile.switchRole': { ar: 'تبديل الوضع', en: 'Switch mode' },
+  'profile.console': { ar: 'لوحة التحكم', en: 'Control panel' },
+  'profile.consoleOpen': { ar: 'فتح لوحة التحكم', en: 'Open control panel' },
+  'profile.signOutAll': { ar: 'تسجيل الخروج من كل الأجهزة', en: 'Sign out of all devices' },
+  'profile.notifications': { ar: 'الإشعارات', en: 'Notifications' },
+
+  'role.customer': { ar: 'مشتري', en: 'Customer' },
+  'role.merchant': { ar: 'تاجر', en: 'Merchant' },
+  'role.restaurant': { ar: 'مطعم', en: 'Restaurant' },
+  'role.delivery_company': { ar: 'شركة توصيل', en: 'Delivery company' },
+  'role.driver': { ar: 'سائق', en: 'Driver' },
+  'role.admin': { ar: 'إدارة', en: 'Admin' },
+
+  'business.registration': { ar: 'تسجيل نشاط تجاري', en: 'Register a business' },
+  'business.registrationHint': {
+    ar: 'قدّم بيانات متجرك أو مطعمك أو شركة التوصيل لإرسالها إلى فريق دامازون للمراجعة.',
+    en: 'Submit your store, restaurant, or delivery company details for Damazon review.',
+  },
+  'business.apply': { ar: 'تقديم طلب نشاط', en: 'Apply to register a business' },
+  'business.name': { ar: 'اسم النشاط', en: 'Business name' },
+  'business.type': { ar: 'نوع النشاط', en: 'Business type' },
+  'business.merchant': { ar: 'متجر', en: 'Store' },
+  'business.restaurant': { ar: 'مطعم', en: 'Restaurant' },
+  'business.deliveryCompany': { ar: 'شركة توصيل', en: 'Delivery company' },
+  'business.submit': { ar: 'إرسال للمراجعة', en: 'Submit for review' },
+  'business.pending': {
+    ar: 'تم استلام طلبك. لن يبدأ النشاط قبل موافقة الإدارة وتأكيد استلام اشتراك نقدي بقيمة 500 ليرة سورية جديدة لمدة 30 يوماً.',
+    en: 'Application received. Your business will start only after administration approves it and confirms the 500 SYP cash subscription for 30 days.',
+  },
+  'business.notApproved': {
+    ar: 'هذا النشاط بانتظار مراجعة واعتماد فريق دامازون. بعد الموافقة، يلزم تسجيل الاشتراك النقدي لتفعيل النشاط.',
+    en: 'This business is waiting for Damazon approval. After approval, the cash subscription must be recorded to activate it.',
+  },
+  'business.awaitingSubscription': {
+    ar: 'تمت الموافقة على النشاط. راجع إدارة دامازون لدفع الاشتراك النقدي وتفعيل الحساب.',
+    en: 'Your business is approved. Pay the cash subscription to Damazon administration to activate it.',
+  },
+  'business.subscriptionWarning': {
+    ar: 'اشتراك نشاطك ينتهي قريباً. جدّده نقداً قبل تاريخ الانتهاء لتجنب إيقاف النشاط.',
+    en: 'Your business subscription expires soon. Renew it in cash before expiry to avoid suspension.',
+  },
+  'business.subscriptionSuspended': {
+    ar: 'أوقف النشاط تلقائياً لانتهاء الاشتراك. راجع إدارة دامازون وادفع نقداً لإعادة التفعيل.',
+    en: 'Your business was suspended automatically because the subscription expired. Pay cash to Damazon to reactivate it.',
+  },
+  'business.subscriptionPending': {
+    ar: 'تم تسجيل التجديد النقدي، وسيبدأ بعد انتهاء الفترة الحالية.',
+    en: 'Your cash renewal is recorded and will start after the current period ends.',
+  },
+  'business.subscriptionUntil': {
+    ar: 'الاشتراك فعال حتى',
+    en: 'Subscription active until',
+  },
+  'business.subscriptionPrice': {
+    ar: '500 ليرة سورية جديدة لكل 30 يوماً، والدفع نقداً للإدارة.',
+    en: '500 new Syrian pounds every 30 days, paid in cash to Damazon administration.',
+  },
+  'business.orders': { ar: 'طلبات النشاط', en: 'Business orders' },
+  'business.noOrders': { ar: 'لا توجد طلبات لهذا النشاط بعد.', en: 'No business orders yet.' },
+  'business.loadFailed': {
+    ar: 'تعذّر تحميل بيانات النشاط أو الطلبات.',
+    en: 'Could not load business details or orders.',
+  },
+  'business.noActiveBusiness': {
+    ar: 'لا يوجد نشاط مرتبط بوضع الحساب الحالي.',
+    en: 'No business is linked to the current account mode.',
+  },
+  'business.active': { ar: 'نشط', en: 'Active' },
+  'business.nextStatus': { ar: 'تحديث حالة الطلب', en: 'Update order status' },
+  'business.markPreparing': { ar: 'بدء التحضير', en: 'Start preparing' },
+  'business.markReady': { ar: 'تجهيز الطلب', en: 'Mark ready' },
+  'business.products': { ar: 'منتجات النشاط', en: 'Business products' },
+  'business.productNameAr': { ar: 'اسم المنتج بالعربية', en: 'Product name in Arabic' },
+  'business.productNameEn': { ar: 'اسم المنتج بالإنجليزية', en: 'Product name in English' },
+  'business.productSku': { ar: 'رمز المنتج', en: 'Product SKU' },
+  'business.productPrice': { ar: 'السعر بالليرة السورية', en: 'Price in Syrian pounds' },
+  'business.productStock': { ar: 'الكمية المتاحة', en: 'Available quantity' },
+  'business.productImageUrl': { ar: 'رابط صورة المنتج', en: 'Product image URL' },
+  'business.productAdd': { ar: 'إضافة كمسودة', en: 'Add as draft' },
+  'business.productEmpty': {
+    ar: 'لم تتم إضافة منتجات بعد.',
+    en: 'No products have been added yet.',
+  },
+  'business.productSaveFailed': {
+    ar: 'تعذر حفظ المنتج. تحقق من البيانات وحاول مجدداً.',
+    en: 'Could not save the product. Check the details and try again.',
+  },
+  'business.productPublish': { ar: 'نشر المنتج', en: 'Publish product' },
+  'business.productUnpublish': { ar: 'إلغاء النشر', en: 'Unpublish product' },
+  'business.productStatus.draft': { ar: 'مسودة', en: 'Draft' },
+  'business.productStatus.active': { ar: 'منشور', en: 'Published' },
+  'business.productStatus.inactive': { ar: 'غير نشط', en: 'Inactive' },
+  'business.productStatus.out_of_stock': { ar: 'نفد المخزون', en: 'Out of stock' },
+  'business.productStatus.archived': { ar: 'مؤرشف', en: 'Archived' },
+  'driver.applicationTitle': { ar: 'التقديم للعمل كسائق', en: 'Apply to become a driver' },
+  'driver.applicationLoadFailed': {
+    ar: 'تعذر تحميل حالة طلب السائق.',
+    en: 'Could not load driver application status.',
+  },
+  'driver.applicationSubmitFailed': {
+    ar: 'تعذر إرسال طلب السائق.',
+    en: 'Could not submit the driver application.',
+  },
+  'driver.applicationPending': { ar: 'الطلب قيد المراجعة', en: 'Application under review' },
+  'driver.applicationPendingHint': {
+    ar: 'ستتمكن من استخدام وضع السائق بعد اعتماد الإدارة وربطك بشركة توصيل.',
+    en: 'Driver mode will be available after administration approves and assigns you to a delivery company.',
+  },
+  'driver.applicationApproved': { ar: 'تم اعتماد الطلب', en: 'Application approved' },
+  'driver.applicationApprovedHint': {
+    ar: 'يمكنك الآن فتح مساحة عمل السائق.',
+    en: 'You can now open the driver workspace.',
+  },
+  'driver.applicationRejected': {
+    ar: 'لم تتم الموافقة على الطلب',
+    en: 'Application was not approved',
+  },
+  'driver.applicationReviewNotice': {
+    ar: 'يتطلب العمل كسائق إدخال بيانات المركبة وموافقة الإدارة.',
+    en: 'Driver accounts require vehicle details and administrative approval.',
+  },
+  'driver.vehicleType': { ar: 'نوع المركبة', en: 'Vehicle type' },
+  'driver.vehiclePlate': { ar: 'رقم اللوحة (اختياري)', en: 'Plate number (optional)' },
+  'driver.apply': { ar: 'إرسال الطلب', en: 'Submit application' },
+  'driver.enterMode': { ar: 'فتح وضع السائق', en: 'Open driver mode' },
+  'driver.vehicle.motorcycle': { ar: 'دراجة نارية', en: 'Motorcycle' },
+  'driver.vehicle.bicycle': { ar: 'دراجة هوائية', en: 'Bicycle' },
+  'driver.vehicle.car': { ar: 'سيارة', en: 'Car' },
+  'driver.vehicle.van': { ar: 'فان', en: 'Van' },
+  'driver.vehicle.truck': { ar: 'شاحنة', en: 'Truck' },
+  'driver.vehicle.walking': { ar: 'مشياً على الأقدام', en: 'Walking' },
+
+  'delivery.title': { ar: 'إدارة التوصيل', en: 'Delivery operations' },
+  'delivery.tasks': { ar: 'مهام التوصيل', en: 'Delivery tasks' },
+  'delivery.drivers': { ar: 'السائقون', en: 'Drivers' },
+  'delivery.noTasks': { ar: 'لا توجد مهام توصيل حالياً.', en: 'No delivery tasks right now.' },
+  'delivery.noDrivers': {
+    ar: 'لا يوجد سائقون مرتبطون بالشركة.',
+    en: 'No drivers are linked to this company.',
+  },
+  'delivery.loadFailed': { ar: 'تعذر تحميل بيانات التوصيل.', en: 'Could not load delivery data.' },
+  'delivery.assign': { ar: 'إسناد للسائق', en: 'Assign to driver' },
+  'delivery.selectDriver': { ar: 'اختر سائقاً متاحاً', en: 'Select an available driver' },
+  'delivery.refresh': { ar: 'تحديث المهام', en: 'Refresh tasks' },
+  'delivery.pickup': { ar: 'الاستلام من', en: 'Pickup from' },
+  'delivery.destination': { ar: 'التوصيل إلى', en: 'Deliver to' },
+  'delivery.customer': { ar: 'العميل', en: 'Customer' },
+  'delivery.phone': { ar: 'الهاتف', en: 'Phone' },
+  'delivery.driver': { ar: 'السائق', en: 'Driver' },
+  'delivery.availability': { ar: 'حالة التوفر', en: 'Availability' },
+  'delivery.available': { ar: 'متاح', en: 'Available' },
+  'delivery.offline': { ar: 'غير متصل', en: 'Offline' },
+  'delivery.onBreak': { ar: 'استراحة', en: 'On break' },
+  'delivery.busy': { ar: 'مشغول', en: 'Busy' },
+  'delivery.suspended': { ar: 'موقوف', en: 'Suspended' },
+  'delivery.shareLocation': { ar: 'تحديث موقعي', en: 'Update my location' },
+  'delivery.locationUpdated': { ar: 'تم تحديث موقعك.', en: 'Your location was updated.' },
+  'delivery.locationFailed': {
+    ar: 'تعذر الوصول إلى موقعك.',
+    en: 'Could not access your location.',
+  },
+  'delivery.accept': { ar: 'قبول المهمة', en: 'Accept task' },
+  'delivery.pickUpAction': { ar: 'تم الاستلام', en: 'Mark picked up' },
+  'delivery.startTrip': { ar: 'بدء التوصيل', en: 'Start delivery' },
+  'delivery.arrived': { ar: 'وصلت إلى الوجهة', en: 'Arrived at destination' },
+  'delivery.complete': { ar: 'إتمام التوصيل', en: 'Complete delivery' },
+  'delivery.cashCollectedConfirm': {
+    ar: 'هل استلمت كامل قيمة الطلب نقداً من العميل؟ لن يتم إتمام التوصيل قبل تأكيد استلام المبلغ.',
+    en: 'Did you collect the full order amount in cash from the customer? Delivery cannot be completed until you confirm collection.',
+  },
+  'delivery.status.unassigned': { ar: 'بانتظار الإسناد', en: 'Unassigned' },
+  'delivery.status.offered': { ar: 'معروضة', en: 'Offered' },
+  'delivery.status.assigned': { ar: 'تم الإسناد', en: 'Assigned' },
+  'delivery.status.accepted': { ar: 'مقبولة', en: 'Accepted' },
+  'delivery.status.picked_up': { ar: 'تم الاستلام', en: 'Picked up' },
+  'delivery.status.in_transit': { ar: 'قيد التوصيل', en: 'In transit' },
+  'delivery.status.arrived_at_destination': { ar: 'وصلت للوجهة', en: 'Arrived' },
+  'delivery.status.delivered': { ar: 'تم التوصيل', en: 'Delivered' },
+  'delivery.status.failed': { ar: 'تعذر التوصيل', en: 'Failed' },
+  'delivery.status.cancelled': { ar: 'ملغاة', en: 'Cancelled' },
+  'delivery.status.returned': { ar: 'مرتجعة', en: 'Returned' },
+
+  'common.loading': { ar: 'جارٍ التحميل', en: 'Loading' },
+  'common.retry': { ar: 'إعادة المحاولة', en: 'Try again' },
+  'common.save': { ar: 'حفظ', en: 'Save' },
+  'common.cancel': { ar: 'إلغاء', en: 'Cancel' },
+  'common.confirm': { ar: 'تأكيد', en: 'Confirm' },
+  'common.close': { ar: 'إغلاق', en: 'Close' },
+  'common.viewAll': { ar: 'عرض الكل', en: 'View all' },
+  'common.offline': { ar: 'لا يوجد اتصال بالإنترنت', en: 'No internet connection' },
+  'common.error': { ar: 'حدث خطأ غير متوقع', en: 'Something went wrong' },
+  'common.required': { ar: 'هذا الحقل مطلوب', en: 'This field is required' },
+  'common.requiredMinutes': { ar: 'دقيقة', en: 'minutes' },
+  'common.offlineQueued': {
+    ar: 'سيُرسل عند عودة الاتصال',
+    en: 'Will send when you are back online',
+  },
+  'common.back': { ar: 'رجوع', en: 'Back' },
+  'common.next': { ar: 'التالي', en: 'Next' },
+  'common.add': { ar: 'إضافة', en: 'Add' },
+  'common.delete': { ar: 'حذف', en: 'Delete' },
+  'common.edit': { ar: 'تعديل', en: 'Edit' },
+  'common.search': { ar: 'بحث', en: 'Search' },
+  'common.optional': { ar: 'اختياري', en: 'Optional' },
+  'common.signInRequired': {
+    ar: 'سجّل الدخول للمتابعة',
+    en: 'Sign in to continue',
+  },
+  'common.more': { ar: 'المزيد', en: 'More' },
+  'common.loadMore': { ar: 'عرض المزيد', en: 'Load more' },
+  'common.results': { ar: 'نتيجة', en: 'results' },
+  'common.na': { ar: 'غير متوفر', en: 'N/A' },
+
+  'home.deliverTo': { ar: 'التوصيل إلى', en: 'Deliver to' },
+  'home.newArrivals': { ar: 'وصل حديثاً', en: 'New arrivals' },
+  'home.zoneShortcut': {
+    ar: 'أنا لست في المنزل — أرسل طلباتي إلى نقطة دامازون',
+    en: "I'm not home — send my orders to a Damazon Point",
+  },
+  'home.manageZones': { ar: 'إدارة المناطق', en: 'Manage zones' },
+  'home.trending': { ar: 'الأكثر طلباً', en: 'Trending' },
+  'home.catalogError': {
+    ar: 'تعذّر تحميل المحتوى، تحقق من الاتصال',
+    en: 'Could not load content. Check your connection.',
+  },
+
+  'product.title': { ar: 'المنتج', en: 'Product' },
+  'product.addToCart': { ar: 'أضف إلى السلة', en: 'Add to cart' },
+  'product.addedToCart': { ar: 'تمت الإضافة إلى السلة', en: 'Added to cart' },
+  'product.outOfStock': { ar: 'نفد المخزون', en: 'Out of stock' },
+  'product.inStock': { ar: 'متوفر', en: 'In stock' },
+  'product.lowStock': { ar: 'الكمية محدودة', en: 'Low stock' },
+  'product.soldBy': { ar: 'يُباع بواسطة', en: 'Sold by' },
+  'product.related': { ar: 'منتجات مشابهة', en: 'Related products' },
+  'product.variants': { ar: 'الخيارات', en: 'Options' },
+  'product.description': { ar: 'الوصف', en: 'Description' },
+  'product.notFound': { ar: 'المنتج غير موجود', en: 'Product not found' },
+  'product.sku': { ar: 'رمز المنتج', en: 'SKU' },
+  'product.favorite': { ar: 'أضف للمفضلة', en: 'Add to favorites' },
+  'product.unavailable': {
+    ar: 'هذا المنتج غير متاح للشراء حالياً',
+    en: 'This product cannot be purchased right now',
+  },
+
+  'store.title': { ar: 'المتجر', en: 'Store' },
+  'store.products': { ar: 'المنتجات', en: 'Products' },
+  'store.noProducts': { ar: 'لا توجد منتجات بعد', en: 'No products yet' },
+  'store.contact': { ar: 'اتصل بالمجر', en: 'Contact store' },
+  'store.joined': { ar: 'عضو منذ', en: 'Joined' },
+  'store.notFound': { ar: 'المتجر غير موجود', en: 'Store not found' },
+
+  'favorites.title': { ar: 'المفضلة', en: 'Favorites' },
+  'favorites.empty': { ar: 'لا توجد منتجات محفوظة', en: 'No saved products yet' },
+  'favorites.hint': {
+    ar: 'احفظ المنتجات لتجدها هنا لاحقاً',
+    en: 'Save products to find them here later',
+  },
+  'favorites.remove': { ar: 'إزالة من المفضلة', en: 'Remove from favorites' },
+
+  'zones.add': { ar: 'إضافة منطقة', en: 'Add zone' },
+  'zones.name': { ar: 'اسم المنطقة', en: 'Zone name' },
+  'zones.namePlaceholder': {
+    ar: 'المكتب، الجامعة، بيت الجد…',
+    en: 'Office, university, grandpa’s house…',
+  },
+  'zones.coordinates': { ar: 'الموقع', en: 'Location' },
+  'zones.locateMe': { ar: 'استخدم موقعي الحالي', en: 'Use my current location' },
+  'zones.coordinatesRequired': {
+    ar: 'حدد إحداثيات الموقع',
+    en: 'Pick the location coordinates',
+  },
+  'zones.radius': { ar: 'نطاق التوصيل (متر)', en: 'Delivery radius (m)' },
+  'zones.instructions': { ar: 'تعليمات التوصيل', en: 'Delivery instructions' },
+  'zones.instructionsPlaceholder': {
+    ar: 'البوابة جانبي، اتصل عند الوصول…',
+    en: 'Side gate, call on arrival…',
+  },
+  'zones.setDefault': { ar: 'تعيين كمنطقة افتراضية', en: 'Set as default' },
+  'zones.setDefaultAction': { ar: 'اجعلها الافتراضية', en: 'Make default' },
+  'zones.empty': { ar: 'لا توجد مناطق محفوظة', en: 'No saved zones yet' },
+  'zones.created': { ar: 'تم حفظ المنطقة', en: 'Zone saved' },
+  'zones.deleted': { ar: 'تم حذف المنطقة', en: 'Zone deleted' },
+  'zones.deleteConfirm': {
+    ar: 'هل تريد حذف هذه المنطقة؟',
+    en: 'Delete this zone?',
+  },
+  'zones.hint': {
+    ar: 'احفظ مواقع تستقبل طلباتك وأنت بعيد: المكتب، الجامعة، مكان اللقاء.',
+    en: 'Save places that receive your orders while you are away.',
+  },
+  'zones.default': { ar: 'افتراضية', en: 'Default' },
+
+  'checkout.title': { ar: 'إتمام الطلب', en: 'Checkout' },
+  'checkout.destination': { ar: 'وجهة التوصيل', en: 'Delivery destination' },
+  'checkout.zoneOption': { ar: 'نقطة دامازون', en: 'Damazon Point' },
+  'checkout.pickupOption': { ar: 'استلام من المتجر', en: 'Pickup from store' },
+  'checkout.selectZone': { ar: 'اختر منطقة', en: 'Choose a zone' },
+  'checkout.noZones': {
+    ar: 'لا توجد مناطق محفوظة — أضف منطقة أولاً',
+    en: 'No saved zones — add one first',
+  },
+  'checkout.manageZones': { ar: 'إدارة المناطق', en: 'Manage zones' },
+  'checkout.recipient': { ar: 'الطلب لشخص آخر', en: 'Order for someone else' },
+  'checkout.recipientName': { ar: 'اسم المستلم', en: 'Recipient name' },
+  'checkout.recipientPhone': { ar: 'هاتف المستلم', en: 'Recipient phone' },
+  'checkout.deliveryInstructions': { ar: 'تعليمات التوصيل', en: 'Delivery instructions' },
+  'checkout.orderNote': { ar: 'ملاحظة للمتجر', en: 'Note for the store' },
+  'checkout.stepDestination': { ar: 'التوصيل', en: 'Delivery' },
+  'checkout.stepPayment': { ar: 'الدفع', en: 'Payment' },
+  'checkout.stepReview': { ar: 'المراجعة', en: 'Review' },
+  'checkout.codHint': { ar: 'ادفع نقداً عند وصول الطلب', en: 'Pay cash when the order arrives' },
+  'checkout.reviewItems': { ar: 'الأصناف', en: 'Items' },
+  'checkout.placing': { ar: 'جارٍ إنشاء الطلب…', en: 'Placing order…' },
+  'checkout.success': { ar: 'تم استلام طلبك!', en: 'Order placed!' },
+  'checkout.successCash': {
+    ar: 'تم تأكيد طلبك، وستدفع نقداً عند الاستلام.',
+    en: 'Your order is confirmed. Pay in cash when it arrives.',
+  },
+  'checkout.goToOrders': { ar: 'عرض طلباتي', en: 'View my orders' },
+  'checkout.emptyCart': { ar: 'سلتك فارغة', en: 'Your cart is empty' },
+  'checkout.perStore': {
+    ar: 'سيُنشأ طلب منفصل لكل متجر ({count} طلبات)',
+    en: 'One separate order per store ({count} orders)',
+  },
+  'checkout.recipientRequired': {
+    ar: 'أدخل اسم وهاتف المستلم',
+    en: 'Enter the recipient name and phone',
+  },
+
+  'cart.clear': { ar: 'تفريغ السلة', en: 'Clear cart' },
+  'cart.cleared': { ar: 'تم تفريغ السلة', en: 'Cart cleared' },
+  'cart.item': { ar: 'صنف', en: 'item' },
+  'cart.unavailable': {
+    ar: 'غير متاح حالياً — لن يُضاف عند الشراء',
+    en: 'Unavailable — will not be ordered',
+  },
+  'cart.multiStore': {
+    ar: 'منتجات من متجر مختلف: سيتم إنشاء طلب مستقل لكل متجر.',
+    en: 'Items from different stores become separate orders.',
+  },
+  'cart.continueShopping': { ar: 'متابعة التسوق', en: 'Continue shopping' },
+
+  'order.detail': { ar: 'تفاصيل الطلب', en: 'Order details' },
+  'order.number': { ar: 'رقم الطلب', en: 'Order number' },
+  'order.date': { ar: 'التاريخ', en: 'Date' },
+  'order.items': { ar: 'الأصناف', en: 'Items' },
+  'order.seller': { ar: 'المتجر', en: 'Store' },
+  'order.viewDetail': { ar: 'التفاصيل', en: 'Details' },
+  'order.cancelConfirm': {
+    ar: 'هل تريد إلغاء هذا الطلب؟',
+    en: 'Cancel this order?',
+  },
+  'order.cancelledSuccessfully': { ar: 'تم إلغاء الطلب', en: 'Order cancelled' },
+  'order.progress': { ar: 'مراحل الطلب', en: 'Order progress' },
+  'order.zone': { ar: 'منطقة التوصيل', en: 'Delivery zone' },
+  'order.paymentMethod': { ar: 'طريقة الدفع', en: 'Payment method' },
+  'order.paymentStatus': { ar: 'حالة الدفع', en: 'Payment status' },
+  'order.payment.pending': {
+    ar: 'سيتم الدفع نقداً عند الاستلام',
+    en: 'Cash is due on delivery',
+  },
+  'order.payment.succeeded': {
+    ar: 'تم استلام المبلغ نقداً',
+    en: 'Cash collected',
+  },
+  'order.status.pending_payment': { ar: 'بانتظار الدفع', en: 'Awaiting payment' },
+  'order.status.confirmed': { ar: 'مؤكد', en: 'Confirmed' },
+  'order.status.preparing': { ar: 'قيد التحضير', en: 'Preparing' },
+  'order.status.ready': { ar: 'جاهز للاستلام', en: 'Ready' },
+  'order.status.assigned': { ar: 'تم تعيين سائق', en: 'Driver assigned' },
+  'order.status.on_the_way': { ar: 'في الطريق إليك', en: 'On the way' },
+  'order.status.arrived': { ar: 'وصل السائق', en: 'Driver arrived' },
+  'order.status.delivered': { ar: 'تم التوصيل', en: 'Delivered' },
+  'order.status.completed': { ar: 'مكتمل', en: 'Completed' },
+  'order.status.cancelled': { ar: 'ملغي', en: 'Cancelled' },
+  'order.status.refunded': { ar: 'مسترد', en: 'Refunded' },
+  'order.status.returned': { ar: 'مُرجَع', en: 'Returned' },
+  'order.status.failed': { ar: 'فشل', en: 'Failed' },
+  'order.status.disputed': { ar: 'متنازع عليه', en: 'Disputed' },
+  'order.status.expired': { ar: 'منتهي', en: 'Expired' },
+  'order.status.draft': { ar: 'مسودة', en: 'Draft' },
+  'order.status.driver_assigned': { ar: 'تم تعيين سائق', en: 'Driver assigned' },
+  'order.status.driver_accepted': { ar: 'السائق في الطريق', en: 'Driver accepted' },
+  'order.pay.cash_on_delivery': { ar: 'الدفع عند الاستلام', en: 'Cash on delivery' },
+  'order.pay.sham_cash': { ar: 'شام كاش', en: 'ShamCash' },
+  'order.pay.qr_payment': { ar: 'دفع برمز QR', en: 'QR payment' },
+
+  'order.tracking': { ar: 'تتبع الطلب', en: 'Order tracking' },
+  'order.trackingMap': { ar: 'خريطة التتبع', en: 'Tracking map' },
+  'order.store': { ar: 'المتجر', en: 'Store' },
+  'order.driver': { ar: 'السائق', en: 'Driver' },
+  'order.destination': { ar: 'وجهة التوصيل', en: 'Destination' },
+  'order.driverName': { ar: 'اسم السائق', en: 'Driver name' },
+  'order.driverLocation': { ar: 'موقع السائق الحالي', en: "Driver's current location" },
+  'order.estimatedArrival': { ar: 'وقت الوصول المتوقع', en: 'Estimated arrival' },
+  'order.driverNotAssigned': { ar: 'لم يتم تعيين سائق بعد', en: 'No driver assigned yet' },
+  'order.orderStatus': { ar: 'حالة الطلب: {status}', en: 'Order status: {status}' },
+  'order.deliveryStatus': { ar: 'حالة التوصيل: {status}', en: 'Delivery status: {status}' },
+  'order.updatedAt': { ar: 'آخر تحديث: {time}', en: 'Updated at: {time}' },
+} as const satisfies Record<string, { readonly ar: string; readonly en: string }>;
+
+export type StringKey = keyof typeof STRINGS;
+
+export type Translator = (
+  key: StringKey,
+  values?: Readonly<Record<string, string | number>>,
+) => string;
+
+function interpolate(
+  template: string,
+  values: Readonly<Record<string, string | number>> | undefined,
+): string {
+  if (values === undefined) {
+    return template;
+  }
+
+  return template.replace(/\{(\w+)\}/g, (match, name: string) => {
+    const value = values[name];
+    return value === undefined ? match : String(value);
+  });
+}
+
+export function createTranslator(locale: SupportedLocale): Translator {
+  return (key, values) => {
+    const entry = STRINGS[key];
+    return interpolate(entry[locale] ?? entry.ar, values);
+  };
+}
+
+export function availableLocales(): readonly SupportedLocale[] {
+  return ['ar', 'en'];
+}
