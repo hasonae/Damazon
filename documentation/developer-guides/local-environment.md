@@ -48,7 +48,7 @@ through nodemon, so a save in `apps/backend/src` rebuilds and reloads.
 ## Verifying a Change
 
 ```bash
-npm run verify   # format:check, lint, typecheck, build, test
+npm run verify   # format:check, lint, typecheck, app build, test
 ```
 
 Narrower loops while working:
@@ -61,13 +61,11 @@ npm run lint --workspaces
 
 ## GitHub Actions Runtime Checks
 
-The `CI` workflow runs on pushes, pull requests, and manual dispatch. It uses
-ephemeral PostgreSQL 16 and Redis 7 services, applies the committed database
-migrations, runs `npm run verify`, then starts the built API and checks readiness
-and the public catalog endpoints against the migrated database. Payment
-configuration in CI uses dummy values and does not contact external providers;
-the workflow is not a substitute for verifying payment or SMTP delivery with
-the production mail provider.
+The `CI` workflow runs on pushes, pull requests, and manual dispatch. It installs
+the locked dependencies, generates the Prisma client, and runs `npm run verify`.
+It does not start PostgreSQL or Redis, so it does not exercise database-backed
+readiness or integration behavior. Verify migrations, Redis-backed rate limits,
+and real SMTP delivery in a staging environment before launch.
 
 ## Database Workflow
 

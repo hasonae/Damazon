@@ -140,20 +140,20 @@ Phone numbers are accepted in any local or E.164 form, so `0941000001` and
 
 ## Scripts
 
-| Command                | Purpose                                    |
-| ---------------------- | ------------------------------------------ |
-| `npm run dev`          | Start the backend in watch mode            |
-| `npm run dev:customer` | Start the customer/business/driver PWA     |
-| `npm run dev:admin`    | Start the admin PWA                        |
-| `npm run build`        | Build packages, then applications          |
-| `npm run typecheck`    | Typecheck every workspace                  |
-| `npm run lint`         | Lint every workspace                       |
-| `npm test`             | Run unit tests in every workspace          |
-| `npm run verify`       | format:check, lint, typecheck, build, test |
-| `npm run db:deploy`    | Apply committed migrations                 |
-| `npm run db:seed`      | Load reference data and demo accounts      |
-| `npm run db:reset`     | Drop, re-migrate, and re-seed (local only) |
-| `npm run clean`        | Remove build and coverage output           |
+| Command                | Purpose                                          |
+| ---------------------- | ------------------------------------------------ |
+| `npm run dev`          | Start the backend in watch mode                  |
+| `npm run dev:customer` | Start the customer/business/driver PWA           |
+| `npm run dev:admin`    | Start the admin PWA                              |
+| `npm run build`        | Build packages, then applications                |
+| `npm run typecheck`    | Build shared packages, then typecheck workspaces |
+| `npm run lint`         | Lint every workspace                             |
+| `npm test`             | Run unit tests in every workspace                |
+| `npm run verify`       | format:check, lint, typecheck, app build, test   |
+| `npm run db:deploy`    | Apply committed migrations                       |
+| `npm run db:seed`      | Load reference data and demo accounts            |
+| `npm run db:reset`     | Drop, re-migrate, and re-seed (local only)       |
+| `npm run clean`        | Remove build and coverage output                 |
 
 ## Conventions
 

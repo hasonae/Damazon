@@ -25,7 +25,7 @@
     "dev": "npm run start:dev -w @damazon/backend",
     "dev:customer": "npm run dev -w @damazon/customer-pwa",
     "dev:admin": "npm run dev -w @damazon/admin-pwa",
-    "typecheck": "npm run typecheck --workspaces --if-present",
+    "typecheck": "npm run build:packages && npm run typecheck --workspaces --if-present",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "format": "prettier --write \"**/*.{ts,tsx,js,mjs,cjs,json,md,yml,yaml}\"",
@@ -38,7 +38,7 @@
     "db:seed": "npm run db:seed -w @damazon/backend",
     "db:seed:reference": "npm run db:seed:reference -w @damazon/backend",
     "db:reset": "npm run db:reset -w @damazon/backend",
-    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run build:apps && npm run test",
     "clean": "node scripts/clean.mjs"
   },
   "devDependencies": {
