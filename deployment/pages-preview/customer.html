@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#8c5a3f" />
+    <meta
+      name="description"
+      content="معاينة واجهة دامازون. خدمات الحسابات والطلبات غير متاحة في هذه النسخة."
+    />
+    <link rel="icon" type="image/png" sizes="48x48" href="__CUSTOMER_BASE__favicon-48.png" />
+    <title>دامازون | معاينة الواجهة</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+        color: #30251f;
+        background: #fcf6f1;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        background:
+          radial-gradient(ellipse at 86% 16%, #f3dece 0, transparent 34rem),
+          linear-gradient(155deg, #fcf6f1 12%, #f5e8dc 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .notice {
+        padding: 0.8rem 1rem;
+        color: #633d27;
+        background: #f0dfc7;
+        text-align: center;
+        font-size: 0.92rem;
+        font-weight: 650;
+      }
+
+      main {
+        display: grid;
+        min-height: calc(100vh - 3.2rem);
+        place-items: center;
+        padding: 3rem 1.25rem;
+      }
+
+      .card {
+        width: min(100%, 46rem);
+        padding: clamp(2rem, 7vw, 4.5rem);
+        border: 1px solid rgb(112 75 52 / 12%);
+        border-radius: 2rem;
+        background: rgb(255 253 250 / 85%);
+        box-shadow: 0 2rem 6rem rgb(82 52 33 / 12%);
+        text-align: center;
+      }
+
+      .logo {
+        width: 6rem;
+        height: 6rem;
+        margin: 0 auto 1.5rem;
+        object-fit: contain;
+      }
+
+      .eyebrow {
+        margin: 0;
+        color: #8c5a3f;
+        font-size: 0.86rem;
+        font-weight: 750;
+        letter-spacing: 0.04em;
+      }
+
+      h1 {
+        margin: 0.55rem 0 0;
+        font-size: clamp(2.4rem, 8vw, 4rem);
+        letter-spacing: -0.05em;
+      }
+
+      .tagline {
+        margin: 0.9rem 0 0;
+        color: #715e51;
+        font-size: clamp(1.05rem, 3vw, 1.3rem);
+        line-height: 1.8;
+      }
+
+      .divider {
+        width: 3.5rem;
+        height: 3px;
+        margin: 2rem auto;
+        border: 0;
+        border-radius: 3px;
+        background: #d3a27c;
+      }
+
+      .details {
+        max-width: 34rem;
+        margin: 0 auto;
+        color: #5f5148;
+        line-height: 1.9;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 2rem;
+      }
+
+      .links a {
+        display: inline-flex;
+        min-height: 2.9rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 1.15rem;
+        border: 1px solid #d5c2b3;
+        border-radius: 999px;
+        background: #fffdfa;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .links a:hover {
+        border-color: #8c5a3f;
+        color: #75472f;
+      }
+
+      footer {
+        padding: 0 1rem 2rem;
+        color: #75665b;
+        text-align: center;
+        font-size: 0.88rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="notice" role="status">
+      نسخة معاينة ثابتة — التسجيل والطلبات والدفع والبيانات غير متاحة
+    </div>
+    <main>
+      <section class="card" aria-labelledby="title">
+        <img
+          class="logo"
+          src="__CUSTOMER_BASE__damazon-logo.png"
+          alt="شعار دامازون"
+          width="96"
+          height="96"
+        />
+        <p class="eyebrow">سوق سوريا الإلكتروني</p>
+        <h1 id="title">دامازون</h1>
+        <p class="tagline">من متاجرك ومطاعمك المفضلة، إلى باب بيتك.</p>
+        <hr class="divider" />
+        <p class="details">
+          هذه صفحة معاينة منشورة عبر GitHub Pages. تعرض هوية المشروع فقط؛ فهذه الاستضافة لا تشغّل
+          خادم التطبيق أو قاعدة البيانات، لذلك لا تتوفر حاليًا الحسابات أو المنتجات الفعلية أو
+          الطلبات.
+        </p>
+        <nav class="links" aria-label="روابط المشروع">
+          <a href="__ADMIN_URL__">معاينة لوحة الإدارة</a>
+          <a href="__REPOSITORY_URL__">الشيفرة المصدرية على GitHub</a>
+        </nav>
+      </section>
+    </main>
+    <footer>دامازون © — معاينة الواجهة فقط</footer>
+  </body>
+</html>

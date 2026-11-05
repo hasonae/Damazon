@@ -52,54 +52,20 @@ The GitHub Actions `CI` workflow runs formatting, lint, type checks, builds, and
 unit tests without Docker or external services. Apply database migrations
 separately with `npm run db:deploy`.
 
-## GitHub Pages Demo Deployment
+## GitHub Pages Static Preview
 
-The Pages workflow publishes the customer PWA at
-`https://<owner>.github.io/<repository>/` and the admin PWA under `/admin/`.
-GitHub Pages serves static files only; it does not run the API, PostgreSQL, or
-Redis. Set the repository Actions variable `DAMAZON_API_BASE_URL` to the public
-HTTPS API URL ending in `/api/v1` before running the Pages workflow.
+The GitHub Pages workflow publishes static, clearly labelled preview pages at
+`https://<owner>.github.io/<repository>/` and
+`https://<owner>.github.io/<repository>/admin/`. This preview does not load or
+bundle the application runtime. Sign-in, registration, API access, products,
+orders, payments, advertisements, and administration are unavailable. Do not
+enter credentials on the admin preview.
 
-A no-cost demo can use a Render free web service for the API, an external
-PostgreSQL database such as the existing Supabase project, Upstash Redis,
-Cloudflare R2 for S3-compatible media, and an SMTP relay such as Resend. Supabase
-Free includes 500 MB of database storage and pauses projects after a week of
-inactivity. Cloudflare R2 includes 10 GB-month of standard storage, one million
-Class A requests, and 10 million Class B requests per month at no charge.
-
-The [Render Blueprint](./render.yaml) describes the API service. Render
-explicitly advises against using free instances for production: the API sleeps
-after 15 minutes without traffic, may take about a minute to wake, and has
-monthly usage limits. Render free PostgreSQL expires after 30 days and its free
-Key Value data is not persistent, so do not use those data services for real
-customer data. Upstash's free Redis tier is limited to 250 MB, 10 GB monthly
-bandwidth, and 500,000 commands. Resend's free email plan is limited to 100
-messages per day and requires a verified sending domain. See the providers'
-[Render free plan](https://render.com/docs/free),
-[Supabase pricing](https://supabase.com/pricing),
-[Upstash Redis pricing](https://upstash.com/pricing/redis),
-[Cloudflare R2 pricing](https://developers.cloudflare.com/r2/pricing/), and
-[Resend pricing](https://resend.com/pricing).
-
-This combination is appropriate only for a low-traffic demo. The free database
-has no production backup guarantee, and services may pause or hit quotas.
-
-For a Render API, configure `SMTP_HOST=smtp.resend.com`, `SMTP_PORT=2587`,
-`SMTP_SECURE=false`, `SMTP_USER=resend`, the Resend API key as `SMTP_PASSWORD`,
-and a verified sender as `SMTP_FROM`. Render blocks outbound SMTP on ports 25,
-465, and 587; Resend documents port 2587. Test actual delivery after deployment.
-The Resend account must verify a sending domain before it can send to customers;
-see its [SMTP setup](https://resend.com/docs/send-with-smtp).
-Also configure production `DATABASE_URL`, `REDIS_URL`, distinct JWT secrets,
-S3-compatible storage credentials, and:
-
-- `CUSTOMER_APP_ORIGIN=https://<owner>.github.io/<repository>/`
-- `ADMIN_APP_ORIGIN=https://<owner>.github.io/<repository>/admin/`
-- `CORS_ALLOWED_ORIGINS=https://<owner>.github.io`
-
-Free hosting is suitable for a demo, not a production launch with availability
-or data-retention guarantees. Use paid, persistent services before accepting
-real orders or customer data.
+GitHub Pages hosts static files only. It cannot run the NestJS API, PostgreSQL,
+Redis, email delivery, or media storage, and GitHub Actions is not a persistent
+application server. A full, operational launch requires a backend and its
+database and supporting services to be hosted somewhere that can run them.
+Never put private credentials in GitHub Pages assets or a public repository.
 
 ## Repository Layout
 
